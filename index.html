@@ -9,22 +9,23 @@
 </head>
 <body>
     <h1>Acordo de Cooperação Acadêmica</h1>
-    <h2>Horas Trabalhadas Parte A</h2>
+    <br/>
+    <div>Acordo de Cooperação Acadêmica que Parte A e Parte B firmam entre si, 
+    para criação de um projeto passível de Direitos de Propriedade Intelectual</div>
     <div>O contrato é: 0x53C34f4897a4111f9299a9b734aD1d5c380a8Ce5</div>
-    <div>A situação de pagamento é: <span id="campoStatus">&nbsp;</span></div>
-    <div>O valor do aluguel é: <span id="campoValorAluguel">&nbsp;</span></div>
+    <div>A proporção de participação na criação e resultados do projeto será calculada com base no número de horas trabalhadas por cada Parte</div>
     <hr>
-    <h1>Formulário de status do contrato</h1>
+    <h2>Horas Trabalhadas Parte A</h2>
     <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="registrarMudancaStatus(); return false;">
         <div>
-            <label for="txtStatusPagamentoAluguel">Informe o novo Status: </label>
+            <label for="txtStatusPagamentoAluguel">Informe o número de horas trabalhadas no Projeto: </label>
             <input type="text" name="txtStatusPagamentoAluguel" id="txtStatusPagamentoAluguel" maxlength="8">
         </div>
         <div>
             &nbsp;
         </div>
         <div>
-            <button type="submit">Registrar Novo Status</button>
+            <button type="submit">Registrar Horas Trabalhadas</button>
         </div>
         <br/><br/>
         <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="EncerrarContrato(); return true;">
@@ -33,15 +34,35 @@
         <div>
             &nbsp;
         </div>
-        <div>
-            <button type="submit">Encerrar o Contrato</button>
-        </div>
         <div><br><hr></div>
         <div id="caixaStatusTx">
             &nbsp;
         </div>
     </form>
-    <p>&nbsp;</p>
+    <h2>Horas Trabalhadas Parte B</h2>
+    <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="registrarMudancaStatus(); return false;">
+            <div>
+                <label for="txtStatusPagamentoAluguel">Informe o número de horas trabalhadas no Projeto: </label>
+                <input type="text" name="txtStatusPagamentoAluguel" id="txtStatusPagamentoAluguel" maxlength="8">
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div>
+                <button type="submit">Registrar Horas Trabalhadas</button>
+            </div>
+            <br/><br/>
+            <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="EncerrarContrato(); return true;">
+            <div>
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div><br><hr></div>
+            <div id="caixaStatusTx">
+                &nbsp;
+            </div>
+        </form>
     <script charset="utf-8"  src="https://cdn.ethers.io/scripts/ethers-v4.min.js" type="text/javascript"></script>
     <script src="javascript/abi.js"></script>    
     <script src="javascript/blockchain.js"></script>    
