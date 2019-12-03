@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+    <div>
     <h1>Acordo de Cooperação Acadêmica</h1>
-    <br/>
-    <div>Acordo de Cooperação Acadêmica que Parte A e Parte B firmam entre si, 
-    para criação de um projeto passível de Direitos de Propriedade Intelectual</div>
-    <div>O contrato é: 0x53C34f4897a4111f9299a9b734aD1d5c380a8Ce5</div>
-    <div>A proporção de participação na criação e resultados do projeto será calculada com base no número de horas trabalhadas por cada Parte</div>
+    <p>Acordo de Cooperação Acadêmica que Parte A e Parte B firmam entre si, 
+    para criação de um projeto passível de Direitos de Propriedade Intelectual </p>
+    <p>O contrato é: 0x5678a15140F1Afdf83ff9BF75595853061078FE0</p>
+    <p>A proporção de participação na criação e resultados do projeto será calculada com base no 
+    número de horas trabalhadas por cada Parte </p>
+    <p> Parte A = Universidade &nbsp &nbsp &nbsp &nbsp Parte B = Empresa </p>
+    </div>
     <hr>
+    <br/>
     <h2>Horas Trabalhadas Parte A</h2>
-    <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="registrarMudancaStatus(); return false;">
+    <form action="#" method="get" id="frmHoras" name="frmHoras" onsubmit="computarHorasTrabalhadas(); return parteAHorasVariaveis + parteHorasVariaveis;">
         <div>
-            <label for="txtStatusPagamentoAluguel">Informe o número de horas trabalhadas no Projeto: </label>
-            <input type="text" name="txtStatusPagamentoAluguel" id="txtStatusPagamentoAluguel" maxlength="8">
+            <label for="txtparteAHorasVariaveis">Informe o número de horas trabalhadas no Projeto: </label>
+            <input type="number" name="txtparteAHorasVariaveis" id="txtparteAHorasVariaveis" maxlength="8">
         </div>
         <div>
             &nbsp;
@@ -28,49 +32,37 @@
             <button type="submit">Registrar Horas Trabalhadas</button>
         </div>
         <br/><br/>
-        <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="EncerrarContrato(); return true;">
-        <div>
-        </div>
-        <div>
-            &nbsp;
-        </div>
         <div><br><hr></div>
         <div id="caixaStatusTx">
             &nbsp;
         </div>
     </form>
     <h2>Horas Trabalhadas Parte B</h2>
-    <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="registrarMudancaStatus(); return false;">
-            <div>
-                <label for="txtStatusPagamentoAluguel">Informe o número de horas trabalhadas no Projeto: </label>
-                <input type="text" name="txtStatusPagamentoAluguel" id="txtStatusPagamentoAluguel" maxlength="8">
-            </div>
-            <div>
-                &nbsp;
-            </div>
-            <div>
-                <button type="submit">Registrar Horas Trabalhadas</button>
-            </div>
-            <br/><br/>
-            <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="EncerrarContrato(); return true;">
-            <div>
-            </div>
-            <div>
-                &nbsp;
-            </div>
-            <div><br><hr></div>
-            <div id="caixaStatusTx">
-                &nbsp;
-            </div>
-        </form>
+    <form action="#" method="get" id="frmHoras" name="frmHoras" onsubmit="computarHorasTrabalhadas(); return parteBHorasVariaveis + parteHorasVariaveis;">
+        <div>
+            <label for="txtparteBHorasVariaveis">Informe o número de horas trabalhadas no Projeto: </label>
+            <input type="number" name="txtparteBHorasVariaveis" id="txtparteBHorasVariaveis" maxlength="8">
+        </div>
+        <div>
+            &nbsp;
+        </div>
+        <div>
+            <button type="submit">Registrar Horas Trabalhadas</button>
+        </div>
+        <br/><br/>
+        <div><br><hr></div>
+        <div id="caixaStatusBTx">
+            &nbsp;
+        </div>
+    </form>
     <script charset="utf-8"  src="https://cdn.ethers.io/scripts/ethers-v4.min.js" type="text/javascript"></script>
     <script src="javascript/abi.js"></script>    
     <script src="javascript/blockchain.js"></script>    
     <script>
         var status;
         var campoStatus = document.getElementById("campoStatus"); 
-        var campoValorAluguel = document.getElementById("campoValorAluguel");
-        contrato.statusPagamentoAluguel()
+        var campoHorasVariaveis = document.getElementById("campoHorasVariaveis");
+        contrato.parteAHorasVariaveis()
             .then( (resultado) => {
                 campoStatus.innerHTML = resultado;
             })
@@ -78,15 +70,38 @@
                 console.error(err);
                 campoStatus.innerHTML = err;
             });   
-        contrato.valorAluguel()
-            .then( (valorAluguel) => {
-                campoValorAluguel.innerHTML = valorAluguel;
+        contrato.parteAHorasVariaveis()
+            .then( (parteAHorasVariaveis) => {
+                campoHorasVariaveis.innerHTML = parteAHorasVariaveis;
             })
             .catch( (err) => {
                 console.error(err);
-                campoValorAluguel.innerHTML = err;
+                campoHorasVariaveis.innerHTML = err;
             });                                       
     </script>
+
+    <script>
+    var status;
+    var campoStatus = document.getElementById("campoStatus"); 
+    var campoHorasVariaveis = document.getElementById("campoHorasVariaveis");
+    contrato.parteAHorasVariaveis()
+        .then( (resultado) => {
+            campoStatus.innerHTML = resultado;
+        })
+        .catch( (err) => {
+            console.error(err);
+            campoStatus.innerHTML = err;
+        });   
+    
+    contrato.parteAHorasVariaveis()
+        .then( (parteAHorasVariaveis) => {
+            campoHorasVariaveis.innerHTML = parteBHorasVariaveis;
+        })
+        .catch( (err) => {
+            console.error(err);
+            campoHorasVariaveis.innerHTML = err;
+        });                                       
+</script>
 </script>
 </body>
 </html>
